@@ -1,19 +1,17 @@
-"use client"
-import { headerLinks } from '@/constant'
+import { headerLinks } from '@/constant';
 import { usePathname } from 'next/dist/client/components/navigation'
-import Link from 'next/link'
+import Link from 'next/link';
+import React from 'react';
 
-import React from 'react'
-
-const navItems = () => {
+const NavItems = () => {
   const pathname = usePathname();
-  
+
   return (
-   <ul className="md:flex-between flex w-full flex-col items-start gap-5 md:flex-row">
-    {headerLinks.map((link) => {
-      const isActive = pathname === link.route;
-       return(
-        <li
+    <ul className="md:flex-between flex w-full flex-col items-start gap-5 md:flex-row">
+      {headerLinks.map((link) => {
+        const isActive = pathname === link.route;
+        return (
+          <li
             key={link.route}
             className={`${
               isActive && 'text-primary-500'
@@ -21,14 +19,10 @@ const navItems = () => {
           >
             <Link href={link.route}>{link.label}</Link>
           </li>
+        );
+      })}
+    </ul>
+  );
+};
 
-       )
-
- })}
-     
-   </ul>
-    
-  )
-}
-
-export default navItems
+export default NavItems;
