@@ -1,3 +1,4 @@
+"use client"
 import { headerLinks } from '@/constant';
 import { usePathname } from 'next/dist/client/components/navigation'
 import Link from 'next/link';
